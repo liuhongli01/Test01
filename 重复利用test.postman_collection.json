@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "7d9a9d29-a765-40ac-9d10-f457f41786c7",
-		"name": "重复利用test",
+		"name": "重复利用ddtest",
 		"description": "说明请求的api\r\n\r\n",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
