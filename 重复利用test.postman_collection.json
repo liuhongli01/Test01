@@ -1,0 +1,269 @@
+{
+	"info": {
+		"_postman_id": "7d9a9d29-a765-40ac-9d10-f457f41786c7",
+		"name": "重复利用test",
+		"description": "说明请求的api\r\n\r\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "天气网站",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "7eaf5382-f7f9-4e6a-9576-6e2aea78836b",
+						"exec": [
+							"// var city=pm.environment.get(\"cityname\");//解析：postman.环境变量.获取某一个变量的键",
+							"// console.log(city);",
+							"",
+							"// pm.environment.set(\"cityname\", \"上海\");//解析：设置一个环境变量",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "a1d7c1a3-c48e-41dd-bf9b-dc97dab9addb",
+						"exec": [
+							"// var commonTests = () =>{",
+							"//     pm.test(\"检验状态码是200\", function () {",
+							"//         pm.response.to.have.status(200);",
+							"//     });//解析：postman使用测试用例（\"设置的名称是\"）,在函数中进行规定要做的事情，postman得到的返回信息拥有一个状体码是200",
+							"",
+							"//     pm.test(\"返回体中存在Server头域\", function () {",
+							"//         pm.response.to.have.header(\"Server\");",
+							"//     });",
+							"",
+							"//     pm.test(\"请求时间小于 200ms\", function () {",
+							"//         pm.expect(pm.response.responseTime).to.be.below(200);",
+							"//     });//解析：postman中期望返回时间低于(时间)",
+							"// }",
+							"// pm.environment.set(\"commonTests\", commonTests.toString());",
+							"",
+							"",
+							"eval(pm.environment.get(\"commonTests\"))();",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.tianqiapi.com/api/?appid=35898396&appsecret=1fXHLY4U&version=v1&city=上海",
+					"protocol": "https",
+					"host": [
+						"www",
+						"tianqiapi",
+						"com"
+					],
+					"path": [
+						"api",
+						""
+					],
+					"query": [
+						{
+							"key": "appid",
+							"value": "35898396"
+						},
+						{
+							"key": "appsecret",
+							"value": "1fXHLY4U"
+						},
+						{
+							"key": "version",
+							"value": "v1"
+						},
+						{
+							"key": "city",
+							"value": "上海"
+						}
+					]
+				},
+				"description": "单个请求说明"
+			},
+			"response": [
+				{
+					"name": "天气网站",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://www.tianqiapi.com/api/?appid=35898396&appsecret=1fXHLY4U&version=v1&city=上海",
+							"protocol": "https",
+							"host": [
+								"www",
+								"tianqiapi",
+								"com"
+							],
+							"path": [
+								"api",
+								""
+							],
+							"query": [
+								{
+									"key": "appid",
+									"value": "35898396"
+								},
+								{
+									"key": "appsecret",
+									"value": "1fXHLY4U"
+								},
+								{
+									"key": "version",
+									"value": "v1"
+								},
+								{
+									"key": "city",
+									"value": "上海"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 13 Aug 2020 07:04:37 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"cityid\": \"101020100\",\n    \"update_time\": \"2020-08-13 12:12:46\",\n    \"city\": \"上海\",\n    \"cityEn\": \"shanghai\",\n    \"country\": \"中国\",\n    \"countryEn\": \"China\",\n    \"data\": [\n        {\n            \"day\": \"13日（今天）\",\n            \"date\": \"2020-08-13\",\n            \"week\": \"星期四\",\n            \"wea\": \"晴转多云\",\n            \"wea_img\": \"yun\",\n            \"air\": 40,\n            \"humidity\": 50,\n            \"air_level\": \"优\",\n            \"air_tips\": \"空气很好，可以外出活动，呼吸新鲜空气，拥抱大自然！\",\n            \"alarm\": {\n                \"alarm_type\": \"\",\n                \"alarm_level\": \"\",\n                \"alarm_content\": \"\"\n            },\n            \"tem1\": \"37℃\",\n            \"tem2\": \"29℃\",\n            \"tem\": \"35℃\",\n            \"win\": [\n                \"南风\",\n                \"南风\"\n            ],\n            \"win_speed\": \"3-4级\",\n            \"hours\": [\n                {\n                    \"day\": \"13日08时\",\n                    \"wea\": \"晴\",\n                    \"tem\": \"31℃\",\n                    \"win\": \"南风\",\n                    \"win_speed\": \"3-4级\"\n                },\n                {\n                    \"day\": \"13日11时\",\n                    \"wea\": \"晴\",\n                    \"tem\": \"35℃\",\n                    \"win\": \"南风\",\n                    \"win_speed\": \"3-4级\"\n                },\n                {\n                    \"day\": \"13日14时\",\n                    \"wea\": \"晴\",\n                    \"tem\": \"37℃\",\n                    \"win\": \"南风\",\n                    \"win_speed\": \"<3级\"\n                },\n                {\n                    \"day\": \"13日17时\",\n                    \"wea\": \"晴\",\n                    \"tem\": \"35℃\",\n                    \"win\": \"南风\",\n                    \"win_speed\": \"3-4级\"\n                },\n                {\n                    \"day\": \"13日20时\",\n                    \"wea\": \"晴\",\n                    \"tem\": \"31℃\",\n                    \"win\": \"南风\",\n                    \"win_speed\": \"3-4级\"\n                },\n                {\n                    \"day\": \"13日23时\",\n                    \"wea\": \"多云\",\n                    \"tem\": \"31℃\",\n                    \"win\": \"南风\",\n                    \"win_speed\": \"3-4级\"\n                },\n                {\n                    \"day\": \"14日02时\",\n                    \"wea\": \"晴\",\n                    \"tem\": \"30℃\",\n                    \"win\": \"南风\",\n                    \"win_speed\": \"3-4级\"\n                },\n                {\n                    \"day\": \"14日05时\",\n                    \"wea\": \"晴\",\n                    \"tem\": \"29℃\",\n                    \"win\": \"南风\",\n                    \"win_speed\": \"<3级\"\n                }\n            ],\n            \"index\": [\n                {\n                    \"title\": \"中国人民保险<br>中暑指数\",\n                    \"level\": \"较易中暑\",\n                    \"desc\": \"暑气灼人，户外工作要避免长时间在阳光下曝晒。\"\n                },\n                {\n                    \"title\": \"</em><em></em><em></em><em>\",\n                    \"level\": null,\n                    \"desc\": \"天热风大，可选择低强度运动。\"\n                },\n                {\n                    \"title\": \"健臻·血糖指数\",\n                    \"level\": \"易波动\",\n                    \"desc\": \"气温高，血糖易波动，注意防暑降温。\"\n                },\n                {\n                    \"title\": \"穿衣指数\",\n                    \"level\": \"炎热\",\n                    \"desc\": \"建议穿短衫、短裤等清凉夏季服装。\"\n                },\n                {\n                    \"title\": \"洗车指数\",\n                    \"level\": \"较不宜\",\n                    \"desc\": \"风力较大，洗车后会蒙上灰尘。\"\n                },\n                {\n                    \"title\": \"紫外线指数\",\n                    \"level\": \"很强\",\n                    \"desc\": \"涂擦SPF20以上，PA++护肤品，避强光。\"\n                }\n            ]\n        },\n        {\n            \"day\": \"14日（明天）\",\n            \"date\": \"2020-08-14\",\n            \"week\": \"星期五\",\n            \"wea\": \"晴\",\n            \"wea_img\": \"qing\",\n            \"tem1\": \"38℃\",\n            \"tem2\": \"29℃\",\n            \"tem\": \"33℃\",\n            \"win\": [\n                \"南风\",\n                \"南风\"\n            ],\n            \"win_speed\": \"3-4级\",\n            \"hours\": [\n                {\n                    \"day\": \"14日08时\",\n                    \"wea\": \"多云\",\n                    \"tem\": \"33℃\",\n                    \"win\": \"南风\",\n                    \"win_speed\": \"<3级\"\n                },\n                {\n                    \"day\": \"14日11时\",\n                    \"wea\": \"晴\",\n                    \"tem\": \"35℃\",\n                    \"win\": \"南风\",\n                    \"win_speed\": \"<3级\"\n                },\n                {\n                    \"day\": \"14日14时\",\n                    \"wea\": \"晴\",\n                    \"tem\": \"38℃\",\n                    \"win\": \"南风\",\n                    \"win_speed\": \"<3级\"\n                },\n                {\n                    \"day\": \"14日17时\",\n                    \"wea\": \"晴\",\n                    \"tem\": \"35℃\",\n                    \"win\": \"南风\",\n                    \"win_speed\": \"3-4级\"\n                },\n                {\n                    \"day\": \"14日20时\",\n                    \"wea\": \"晴\",\n                    \"tem\": \"30℃\",\n                    \"win\": \"南风\",\n                    \"win_speed\": \"3-4级\"\n                },\n                {\n                    \"day\": \"14日23时\",\n                    \"wea\": \"晴\",\n                    \"tem\": \"30℃\",\n                    \"win\": \"南风\",\n                    \"win_speed\": \"3-4级\"\n                },\n                {\n                    \"day\": \"15日02时\",\n                    \"wea\": \"晴\",\n                    \"tem\": \"29℃\",\n                    \"win\": \"南风\",\n                    \"win_speed\": \"3-4级\"\n                },\n                {\n                    \"day\": \"15日05时\",\n                    \"wea\": \"晴\",\n                    \"tem\": \"29℃\",\n                    \"win\": \"南风\",\n                    \"win_speed\": \"3-4级\"\n                }\n            ],\n            \"index\": [\n                {\n                    \"title\": \"中国人民保险<br>中暑指数\",\n                    \"level\": \"易中暑\",\n                    \"desc\": \"桑拿天里，食物容易变质腐烂，注意饮食安全，避免食物中毒。\"\n                },\n                {\n                    \"title\": \"</em><em></em><em></em><em>\",\n                    \"level\": null,\n                    \"desc\": \"天热风大，可选择低强度运动。\"\n                },\n                {\n                    \"title\": \"健臻·血糖指数\",\n                    \"level\": \"易波动\",\n                    \"desc\": \"气温高，血糖易波动，注意防暑降温。\"\n                },\n                {\n                    \"title\": \"穿衣指数\",\n                    \"level\": \"炎热\",\n                    \"desc\": \"建议穿短衫、短裤等清凉夏季服装。\"\n                },\n                {\n                    \"title\": \"洗车指数\",\n                    \"level\": \"较不宜\",\n                    \"desc\": \"风力较大，洗车后会蒙上灰尘。\"\n                },\n                {\n                    \"title\": \"紫外线指数\",\n                    \"level\": \"很强\",\n                    \"desc\": \"涂擦SPF20以上，PA++护肤品，避强光。\"\n                }\n            ]\n        },\n        {\n            \"day\": \"15日（后天）\",\n            \"date\": \"2020-08-15\",\n            \"week\": \"星期六\",\n            \"wea\": \"晴\",\n            \"wea_img\": \"qing\",\n            \"tem1\": \"36℃\",\n            \"tem2\": \"28℃\",\n            \"tem\": \"31℃\",\n            \"win\": [\n                \"南风\",\n                \"南风\"\n            ],\n            \"win_speed\": \"3-4级\",\n            \"hours\": [\n                {\n                    \"day\": \"15日08时\",\n                    \"wea\": \"晴\",\n                    \"tem\": \"31℃\",\n                    \"win\": \"南风\",\n                    \"win_speed\": \"3-4级\"\n                },\n                {\n                    \"day\": \"15日11时\",\n                    \"wea\": \"晴\",\n                    \"tem\": \"34℃\",\n                    \"win\": \"南风\",\n                    \"win_speed\": \"3-4级\"\n                },\n                {\n                    \"day\": \"15日14时\",\n                    \"wea\": \"晴\",\n                    \"tem\": \"36℃\",\n                    \"win\": \"南风\",\n                    \"win_speed\": \"3-4级\"\n                },\n                {\n                    \"day\": \"15日17时\",\n                    \"wea\": \"晴\",\n                    \"tem\": \"34℃\",\n                    \"win\": \"南风\",\n                    \"win_speed\": \"3-4级\"\n                },\n                {\n                    \"day\": \"15日20时\",\n                    \"wea\": \"晴\",\n                    \"tem\": \"30℃\",\n                    \"win\": \"南风\",\n                    \"win_speed\": \"3-4级\"\n                },\n                {\n                    \"day\": \"15日23时\",\n                    \"wea\": \"晴\",\n                    \"tem\": \"30℃\",\n                    \"win\": \"南风\",\n                    \"win_speed\": \"3-4级\"\n                },\n                {\n                    \"day\": \"16日02时\",\n                    \"wea\": \"晴\",\n                    \"tem\": \"29℃\",\n                    \"win\": \"南风\",\n                    \"win_speed\": \"3-4级\"\n                },\n                {\n                    \"day\": \"16日05时\",\n                    \"wea\": \"晴\",\n                    \"tem\": \"29℃\",\n                    \"win\": \"南风\",\n                    \"win_speed\": \"3-4级\"\n                }\n            ],\n            \"index\": [\n                {\n                    \"title\": \"中国人民保险<br>中暑指数\",\n                    \"level\": \"易中暑\",\n                    \"desc\": \"桑拿天突然“驾到”，小心“情绪中暑”~\"\n                },\n                {\n                    \"title\": \"</em><em></em><em></em><em>\",\n                    \"level\": null,\n                    \"desc\": \"天热风大，可选择低强度运动。\"\n                },\n                {\n                    \"title\": \"健臻·血糖指数\",\n                    \"level\": \"易波动\",\n                    \"desc\": \"气温高，血糖易波动，注意防暑降温。\"\n                },\n                {\n                    \"title\": \"穿衣指数\",\n                    \"level\": \"炎热\",\n                    \"desc\": \"建议穿短衫、短裤等清凉夏季服装。\"\n                },\n                {\n                    \"title\": \"洗车指数\",\n                    \"level\": \"较不宜\",\n                    \"desc\": \"风力较大，洗车后会蒙上灰尘。\"\n                },\n                {\n                    \"title\": \"紫外线指数\",\n                    \"level\": \"很强\",\n                    \"desc\": \"涂擦SPF20以上，PA++护肤品，避强光。\"\n                }\n            ]\n        },\n        {\n            \"day\": \"16日（周日）\",\n            \"date\": \"2020-08-16\",\n            \"week\": \"星期日\",\n            \"wea\": \"晴\",\n            \"wea_img\": \"qing\",\n            \"tem1\": \"36℃\",\n            \"tem2\": \"28℃\",\n            \"tem\": \"31℃\",\n            \"win\": [\n                \"东南风\",\n                \"南风\"\n            ],\n            \"win_speed\": \"3-4级\",\n            \"hours\": [\n                {\n                    \"day\": \"16日08时\",\n                    \"wea\": \"晴\",\n                    \"tem\": \"31℃\",\n                    \"win\": \"南风\",\n                    \"win_speed\": \"3-4级\"\n                },\n                {\n                    \"day\": \"16日14时\",\n                    \"wea\": \"晴\",\n                    \"tem\": \"35℃\",\n                    \"win\": \"东南风\",\n                    \"win_speed\": \"3-4级\"\n                },\n                {\n                    \"day\": \"16日20时\",\n                    \"wea\": \"晴\",\n                    \"tem\": \"29℃\",\n                    \"win\": \"东南风\",\n                    \"win_speed\": \"3-4级\"\n                },\n                {\n                    \"day\": \"17日02时\",\n                    \"wea\": \"晴\",\n                    \"tem\": \"28℃\",\n                    \"win\": \"南风\",\n                    \"win_speed\": \"3-4级\"\n                }\n            ],\n            \"index\": [\n                {\n                    \"title\": \"中国人民保险<br>中暑指数\",\n                    \"level\": \"易中暑\",\n                    \"desc\": \"桑拿天突然“驾到”，小心“情绪中暑”~\"\n                },\n                {\n                    \"title\": \"</em><em></em><em></em><em>\",\n                    \"level\": null,\n                    \"desc\": \"天热风大，可选择低强度运动。\"\n                },\n                {\n                    \"title\": \"健臻·血糖指数\",\n                    \"level\": \"易波动\",\n                    \"desc\": \"气温高，血糖易波动，注意防暑降温。\"\n                },\n                {\n                    \"title\": \"穿衣指数\",\n                    \"level\": \"炎热\",\n                    \"desc\": \"建议穿短衫、短裤等清凉夏季服装。\"\n                },\n                {\n                    \"title\": \"洗车指数\",\n                    \"level\": \"较不宜\",\n                    \"desc\": \"风力较大，洗车后会蒙上灰尘。\"\n                },\n                {\n                    \"title\": \"紫外线指数\",\n                    \"level\": \"很强\",\n                    \"desc\": \"涂擦SPF20以上，PA++护肤品，避强光。\"\n                }\n            ]\n        },\n        {\n            \"day\": \"17日（周一）\",\n            \"date\": \"2020-08-17\",\n            \"week\": \"星期一\",\n            \"wea\": \"晴\",\n            \"wea_img\": \"qing\",\n            \"tem1\": \"36℃\",\n            \"tem2\": \"28℃\",\n            \"tem\": \"31℃\",\n            \"win\": [\n                \"南风\",\n                \"南风\"\n            ],\n            \"win_speed\": \"3-4级\",\n            \"hours\": [\n                {\n                    \"day\": \"17日08时\",\n                    \"wea\": \"晴\",\n                    \"tem\": \"31℃\",\n                    \"win\": \"南风\",\n                    \"win_speed\": \"3-4级\"\n                },\n                {\n                    \"day\": \"17日14时\",\n                    \"wea\": \"晴\",\n                    \"tem\": \"35℃\",\n                    \"win\": \"南风\",\n                    \"win_speed\": \"3-4级\"\n                },\n                {\n                    \"day\": \"17日20时\",\n                    \"wea\": \"晴\",\n                    \"tem\": \"29℃\",\n                    \"win\": \"南风\",\n                    \"win_speed\": \"3-4级\"\n                },\n                {\n                    \"day\": \"18日02时\",\n                    \"wea\": \"晴\",\n                    \"tem\": \"28℃\",\n                    \"win\": \"南风\",\n                    \"win_speed\": \"3-4级\"\n                }\n            ],\n            \"index\": [\n                {\n                    \"title\": \"中国人民保险<br>中暑指数\",\n                    \"level\": \"极易中暑\",\n                    \"desc\": \"即使遭遇躲不过去的桑拿天，也不要太贪凉~\"\n                },\n                {\n                    \"title\": \"</em><em></em><em></em><em>\",\n                    \"level\": null,\n                    \"desc\": \"天热风大，可选择低强度运动。\"\n                },\n                {\n                    \"title\": \"健臻·血糖指数\",\n                    \"level\": \"易波动\",\n                    \"desc\": \"气温高，血糖易波动，注意防暑降温。\"\n                },\n                {\n                    \"title\": \"穿衣指数\",\n                    \"level\": \"炎热\",\n                    \"desc\": \"建议穿短衫、短裤等清凉夏季服装。\"\n                },\n                {\n                    \"title\": \"洗车指数\",\n                    \"level\": \"较不宜\",\n                    \"desc\": \"风力较大，洗车后会蒙上灰尘。\"\n                },\n                {\n                    \"title\": \"紫外线指数\",\n                    \"level\": \"很强\",\n                    \"desc\": \"涂擦SPF20以上，PA++护肤品，避强光。\"\n                }\n            ]\n        },\n        {\n            \"day\": \"18日（周二）\",\n            \"date\": \"2020-08-18\",\n            \"week\": \"星期二\",\n            \"wea\": \"晴转多云\",\n            \"wea_img\": \"yun\",\n            \"tem1\": \"36℃\",\n            \"tem2\": \"28℃\",\n            \"tem\": \"31℃\",\n            \"win\": [\n                \"南风\",\n                \"南风\"\n            ],\n            \"win_speed\": \"3-4级\",\n            \"hours\": [\n                {\n                    \"day\": \"18日08时\",\n                    \"wea\": \"晴\",\n                    \"tem\": \"31℃\",\n                    \"win\": \"南风\",\n                    \"win_speed\": \"3-4级\"\n                },\n                {\n                    \"day\": \"18日14时\",\n                    \"wea\": \"晴\",\n                    \"tem\": \"35℃\",\n                    \"win\": \"南风\",\n                    \"win_speed\": \"3-4级\"\n                },\n                {\n                    \"day\": \"18日20时\",\n                    \"wea\": \"晴\",\n                    \"tem\": \"29℃\",\n                    \"win\": \"南风\",\n                    \"win_speed\": \"3-4级\"\n                },\n                {\n                    \"day\": \"19日02时\",\n                    \"wea\": \"晴\",\n                    \"tem\": \"28℃\",\n                    \"win\": \"南风\",\n                    \"win_speed\": \"3-4级\"\n                }\n            ],\n            \"index\": [\n                {\n                    \"title\": \"中国人民保险<br>中暑指数\",\n                    \"level\": \"极易中暑\",\n                    \"desc\": \"桑拿天里，食物容易变质腐烂，注意饮食安全，避免食物中毒。\"\n                },\n                {\n                    \"title\": \"</em><em></em><em></em><em>\",\n                    \"level\": null,\n                    \"desc\": \"天热风大，可选择低强度运动。\"\n                },\n                {\n                    \"title\": \"健臻·血糖指数\",\n                    \"level\": \"易波动\",\n                    \"desc\": \"气温高，血糖易波动，注意防暑降温。\"\n                },\n                {\n                    \"title\": \"穿衣指数\",\n                    \"level\": \"炎热\",\n                    \"desc\": \"建议穿短衫、短裤等清凉夏季服装。\"\n                },\n                {\n                    \"title\": \"洗车指数\",\n                    \"level\": \"较不宜\",\n                    \"desc\": \"风力较大，洗车后会蒙上灰尘。\"\n                },\n                {\n                    \"title\": \"紫外线指数\",\n                    \"level\": \"很强\",\n                    \"desc\": \"涂擦SPF20以上，PA++护肤品，避强光。\"\n                }\n            ]\n        },\n        {\n            \"day\": \"19日（周三）\",\n            \"date\": \"2020-08-19\",\n            \"week\": \"星期三\",\n            \"wea\": \"晴\",\n            \"wea_img\": \"qing\",\n            \"tem1\": \"35℃\",\n            \"tem2\": \"28℃\",\n            \"tem\": \"30℃\",\n            \"win\": [\n                \"南风\",\n                \"东南风\"\n            ],\n            \"win_speed\": \"3-4级\",\n            \"hours\": [\n                {\n                    \"day\": \"19日08时\",\n                    \"wea\": \"多云\",\n                    \"tem\": \"30℃\",\n                    \"win\": \"南风\",\n                    \"win_speed\": \"3-4级\"\n                },\n                {\n                    \"day\": \"19日14时\",\n                    \"wea\": \"晴\",\n                    \"tem\": \"34℃\",\n                    \"win\": \"南风\",\n                    \"win_speed\": \"3-4级\"\n                },\n                {\n                    \"day\": \"19日20时\",\n                    \"wea\": \"晴\",\n                    \"tem\": \"28℃\",\n                    \"win\": \"南风\",\n                    \"win_speed\": \"3-4级\"\n                },\n                {\n                    \"day\": \"20日02时\",\n                    \"wea\": \"晴\",\n                    \"tem\": \"28℃\",\n                    \"win\": \"东南风\",\n                    \"win_speed\": \"3-4级\"\n                }\n            ],\n            \"index\": [\n                {\n                    \"title\": \"中国人民保险<br>中暑指数\",\n                    \"level\": \"极易中暑\",\n                    \"desc\": \"桑拿天突然“驾到”，小心“情绪中暑”~\"\n                },\n                {\n                    \"title\": \"</em><em></em><em></em><em>\",\n                    \"level\": null,\n                    \"desc\": \"天热风大，可选择低强度运动。\"\n                },\n                {\n                    \"title\": \"健臻·血糖指数\",\n                    \"level\": \"易波动\",\n                    \"desc\": \"气温高，血糖易波动，注意防暑降温。\"\n                },\n                {\n                    \"title\": \"穿衣指数\",\n                    \"level\": \"炎热\",\n                    \"desc\": \"建议穿短衫、短裤等清凉夏季服装。\"\n                },\n                {\n                    \"title\": \"洗车指数\",\n                    \"level\": \"较不宜\",\n                    \"desc\": \"风力较大，洗车后会蒙上灰尘。\"\n                },\n                {\n                    \"title\": \"紫外线指数\",\n                    \"level\": \"很强\",\n                    \"desc\": \"涂擦SPF20以上，PA++护肤品，避强光。\"\n                }\n            ]\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "天气网站 Copy",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "d02f7532-df59-4dd1-b844-6ca0cf289c69",
+						"exec": [
+							"// var city=pm.environment.get(\"cityname\");//解析：postman.环境变量.获取某一个变量的键",
+							"// console.log(city);",
+							"",
+							"// pm.environment.set(\"cityname\", \"上海\");//解析：设置一个环境变量",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "99145420-3f57-424c-9fd9-1395599dc8c2",
+						"exec": [
+							"",
+							"eval(pm.environment.get(\"commonTests\"))();",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.tianqiapi.com/api/?appid=35898396&appsecret=1fXHLY4U&version=v1&city=天津",
+					"protocol": "https",
+					"host": [
+						"www",
+						"tianqiapi",
+						"com"
+					],
+					"path": [
+						"api",
+						""
+					],
+					"query": [
+						{
+							"key": "appid",
+							"value": "35898396"
+						},
+						{
+							"key": "appsecret",
+							"value": "1fXHLY4U"
+						},
+						{
+							"key": "version",
+							"value": "v1"
+						},
+						{
+							"key": "city",
+							"value": "天津"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "5b3411a6-58ff-4e1f-ae6e-e90eeef0f3c8",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "4b327dc5-4b10-445f-a230-3d5a480aea0d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
